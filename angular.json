@@ -5,7 +5,17 @@
   "projects": {
     "prjJamTangan": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -99,6 +109,6 @@
     }
   },
   "cli": {
-    "analytics": "b52a92f9-87ad-4245-bbfd-6f81f9ec17e4"
+    "analytics": "17e3d004-10ef-4c5c-b3b1-1eae7f30e17b"
   }
 }
