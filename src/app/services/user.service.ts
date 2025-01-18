@@ -1,15 +1,15 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { User } from '../models/user.model';
-import { response } from 'express';
-import { environment } from '../../environments/environment';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
+import { User } from "../models/user.model";
+import { response } from "express";
+import { environment } from "../../environments/environment";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class UserService {
-  private url: string = environment.api + 'users/';
+  private url: string = environment.api + "users/";
   private subjectExecuteUser = new Subject<string>();
 
   constructor(public http: HttpClient) {}
@@ -17,6 +17,12 @@ export class UserService {
   //observeable, subject
   executeUserListener() {
     return this.subjectExecuteUser.asObservable();
+  }
+
+  getUserById(userId: string) {
+    return this.http.get<{ message: string; user: User }>(
+      `${this.url}${userId}`
+    );
   }
 
   addUser(email: string, password: string) {

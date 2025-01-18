@@ -26,9 +26,9 @@ export class KategoriService {
 
   getKategori() {
     this.http
-      .get<{ message: string; kategoris: Kategori[] }>(this.url)
+      .get<{ message: string; categories: Kategori[] }>(this.url)
       .subscribe((value) => {
-        this.subjectKategori.next(value.kategoris);
+        this.subjectKategori.next(value.categories);
       });
   }
 
